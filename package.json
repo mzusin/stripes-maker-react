@@ -4,7 +4,8 @@
   "description": "A free online SVG stripe pattern generator and maker. Create multi-stripe animated patterns, copy CSS or SVG code that is ready for you web projects, or just download the SVG file for free!",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build:es6": "node run/website/index.js",
+    "watch:es6": "node run/website/index.js -- watch"
   },
   "keywords": [
     "stripes",
@@ -23,5 +24,10 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/mzusin/stripes-maker-react"
+  },
+  "dependencies": {
+    "darkly": "^1.0.8",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }
