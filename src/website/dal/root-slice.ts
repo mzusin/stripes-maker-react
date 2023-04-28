@@ -19,7 +19,7 @@ export interface IRootState{
  * initial state
  */
 const initialState: IRootState = {
-    selectedAction: EAction.ImageSize,
+    selectedAction: EAction.Stripes,
 
     svgWidth: 500,
     svgHeight: 270,
