@@ -5,3 +5,16 @@ export enum EAction {
     Animation = 3,
     Export = 4,
 }
+
+export enum EAnimationType {
+    NoAnimation = 1,
+    RotateClockWise = 2,
+    RotationCounterClockwise = 3,
+    Linear = 4,
+}
+
+export interface IStripe {
+    color: string;
+    size: number;
+    id: string;
+}
