@@ -7,6 +7,7 @@ export interface IRootState{
 
     svgWidth: number;
     svgHeight: number;
+    svgBgColor: string;
 
     lineRotation: number;
     animationType: EAnimationType;
@@ -22,10 +23,9 @@ const initialState: IRootState = {
 
     svgWidth: 500,
     svgHeight: 270,
+    svgBgColor: '#b0d7e0',
 
-    /*out: './out/example.svg',  // the pass to the output file
-
-    bgColor: '#fff', // SVG background color*/
+    /*out: './out/example.svg',  // the pass to the output file */
     lineRotation: 45, // stripes rotation angle in degrees
 
     // optional animation -----------

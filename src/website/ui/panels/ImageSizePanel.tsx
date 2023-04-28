@@ -17,6 +17,7 @@ const ImageSizePanel = () => {
 
     const svgWidth = useAppSelector(store => store.root.svgWidth);
     const svgHeight = useAppSelector(store => store.root.svgHeight);
+    const svgBgColor = useAppSelector(store => store.root.svgBgColor);
 
     const setSvgWidth = (value: number) => {
         dispatch(
@@ -30,6 +31,15 @@ const ImageSizePanel = () => {
         dispatch(
             rootActions.main({
                 svgHeight: value,
+            })
+        )
+    };
+
+    const setSvgBgColor = (value: number) => {
+
+        dispatch(
+            rootActions.main({
+                svgBgColor: value,
             })
         )
     };
@@ -57,6 +67,13 @@ const ImageSizePanel = () => {
                 setValue={ setSvgHeight }>
                 Height
             </NumberTextBox>
+
+            <ColorPicker
+                classes="m-4"
+                color={ svgBgColor }
+                setColor={ setSvgBgColor }>
+                Background Color
+            </ColorPicker>
         </Panel>
     )
 };

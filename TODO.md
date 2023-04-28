@@ -1,1 +1,3 @@
 - svg width / height 100%
+- transparent svg bg color
+- svg size > container ---> fix
