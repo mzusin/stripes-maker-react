@@ -1,9 +1,11 @@
 import React, { Fragment } from 'react';
 import { CloseMobileMenuButton, ColorPicker, EButtonType, HSplitter, NumberTextBox, Panel, PanelTitle, PanelSection, Button } from 'darkly';
-import { rootActions, useAppDispatch, useAppSelector } from '../../dal/store';
+import store, { rootActions, useAppDispatch, useAppSelector } from '../../dal/store';
 import { IStripe } from '../../iterfaces';
 import { addStripe, deleteStripe, updateStripe } from '../../domain/stripes-provider';
 import { CloseIcon, PlusIcon } from '../Icons';
+import debounce from 'lodash-es/debounce';
+import tinycolor from 'tinycolor2';
 
 const StripesPanel = () => {
 
@@ -24,11 +26,12 @@ const StripesPanel = () => {
         )
     };
 
-    const onColorChange = (stripe: IStripe, newColor: string) => {
+    const _debounce = debounce( (stripe: IStripe, newColor: string) => {
+
         const updatedStripes = updateStripe(
             stripe.id,
             { ...stripe, color: newColor },
-            stripes
+            store.getState().root.stripes
         );
 
         dispatch(
@@ -36,7 +39,23 @@ const StripesPanel = () => {
                 stripes: updatedStripes,
             })
         )
-    };
+    }, 500);
+
+    /*
+    const onColorChange = useCallback((stripe: IStripe, newColor: string) => {
+
+        const updatedStripes = updateStripe(
+            stripe.id,
+            { ...stripe, color: newColor },
+            store.getState().root.stripes
+        );
+
+        dispatch(
+            rootActions.main({
+                stripes: updatedStripes,
+            })
+        )
+    }, [stripes]);*/
 
     const addStripeHandler = () => {
         const updatedStripes = addStripe(stripes);
@@ -88,7 +107,8 @@ const StripesPanel = () => {
                                     popupPosition="right"
                                     buttonWidth="100px"
                                     setColor={ (newColor: string) => {
-                                        onColorChange(stripe, newColor);
+                                        if(tinycolor.equals(stripe.color, newColor)) return;
+                                        _debounce(stripe, newColor);
                                     }}>
                                     Color
                                 </ColorPicker>
@@ -98,6 +118,7 @@ const StripesPanel = () => {
                                     width="100px"
                                     value={ stripe.size }
                                     setValue={ (newValue: number) => {
+                                        if(stripe.size === newValue) return;
                                         onSizeChange(stripe, newValue);
                                     }}>
                                     Size
