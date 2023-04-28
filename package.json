@@ -28,7 +28,7 @@
     "url": "https://github.com/mzusin/stripes-maker-react"
   },
   "dependencies": {
-    "darkly": "^1.0.10",
+    "darkly": "^1.0.15",
     "mz-math": "^3.0.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"

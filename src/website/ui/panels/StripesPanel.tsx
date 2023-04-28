@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { CloseMobileMenuButton, ColorPicker, HSplitter, NumberTextBox, Panel, PanelTitle } from 'darkly';
+import { CloseMobileMenuButton, ColorPicker, EButtonType, HSplitter, NumberTextBox, Panel, PanelTitle, PanelSection, Button } from 'darkly';
 import { rootActions, useAppDispatch, useAppSelector } from '../../dal/store';
 import { IStripe } from '../../iterfaces';
 import { updateStripe } from '../../domain/stripes-provider';
@@ -46,34 +46,47 @@ const StripesPanel = () => {
 
             <HSplitter />
 
-            {
-                stripes.map(stripe => {
-                    return (
-                        <Fragment key={ stripe.id }>
-                            <NumberTextBox
-                                classes="m-4"
-                                width="100px"
-                                value={ stripe.size }
-                                setValue={ (newValue: number) => {
-                                    onSizeChange(stripe, newValue);
-                                }}>
-                                Size
-                            </NumberTextBox>
+            <PanelSection fullHeight={ true } scrollable={ true }>
+                {
+                    stripes.map(stripe => {
+                        return (
+                            <Fragment key={ stripe.id }>
+                                <NumberTextBox
+                                    classes="m-4"
+                                    width="100px"
+                                    value={ stripe.size }
+                                    setValue={ (newValue: number) => {
+                                        onSizeChange(stripe, newValue);
+                                    }}>
+                                    Size
+                                </NumberTextBox>
 
-                            <ColorPicker
-                                classes="m-4"
-                                color={ stripe.color }
-                                setColor={ (newColor: string) => {
-                                    onColorChange(stripe, newColor);
-                                }}>
-                                Color
-                            </ColorPicker>
+                                <ColorPicker
+                                    classes="m-4"
+                                    color={ stripe.color }
+                                    setColor={ (newColor: string) => {
+                                        onColorChange(stripe, newColor);
+                                    }}>
+                                    Color
+                                </ColorPicker>
 
-                            <HSplitter />
-                        </Fragment>
-                    )
-                })
-            }
+                                <HSplitter />
+                            </Fragment>
+                        )
+                    })
+                }
+            </PanelSection>
+
+            <Button type={ EButtonType.Primary } classes="my-4">
+                Add Stripe
+                <svg xmlns="http://www.w3.org/2000/svg" className="ml-4" width="24"
+                     height="24" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none"
+                     strokeLinecap="round" strokeLinejoin="round">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                    <path d="M12 5l0 14"></path>
+                    <path d="M5 12l14 0"></path>
+                </svg>
+            </Button>
         </Panel>
     )
 };

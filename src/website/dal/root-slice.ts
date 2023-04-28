@@ -53,6 +53,66 @@ const initialState: IRootState = {
             color: '#ffffff',
             size: 10,
             id: newId(),
+        },
+        {
+            color: '#33805B',
+            size: 20,
+            id: newId(),
+        },
+        {
+            color: '#92CBFA',
+            size: 10,
+            id: newId(),
+        },
+        {
+            color: '#AB3C83',
+            size: 20,
+            id: newId(),
+        },
+        {
+            color: '#ffffff',
+            size: 10,
+            id: newId(),
+        },
+        {
+            color: '#33805B',
+            size: 20,
+            id: newId(),
+        },
+        {
+            color: '#92CBFA',
+            size: 10,
+            id: newId(),
+        },
+        {
+            color: '#AB3C83',
+            size: 20,
+            id: newId(),
+        },
+        {
+            color: '#ffffff',
+            size: 10,
+            id: newId(),
+        },
+        {
+            color: '#33805B',
+            size: 20,
+            id: newId(),
+        },
+        {
+            color: '#92CBFA',
+            size: 10,
+            id: newId(),
+        },
+        {
+            color: '#AB3C83',
+            size: 20,
+            id: newId(),
+        },
+        {
+            color: '#ffffff',
+            size: 10,
+            id: newId(),
         }
     ]
 };
