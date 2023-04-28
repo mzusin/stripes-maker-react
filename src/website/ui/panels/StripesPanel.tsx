@@ -1,10 +1,41 @@
 import React, { Fragment } from 'react';
 import { CloseMobileMenuButton, ColorPicker, HSplitter, NumberTextBox, Panel, PanelTitle } from 'darkly';
-import { useAppSelector } from '../../dal/store';
+import { rootActions, useAppDispatch, useAppSelector } from '../../dal/store';
+import { IStripe } from '../../iterfaces';
+import { updateStripe } from '../../domain/stripes-provider';
 
 const StripesPanel = () => {
 
+    const dispatch = useAppDispatch();
     const stripes = useAppSelector(store => store.root.stripes);
+
+    const onSizeChange = (stripe: IStripe, newSize: number) => {
+        const updatedStripes = updateStripe(
+            stripe.id,
+            { ...stripe, size: newSize },
+            stripes
+        );
+
+        dispatch(
+            rootActions.main({
+                stripes: updatedStripes,
+            })
+        )
+    };
+
+    const onColorChange = (stripe: IStripe, newColor: string) => {
+        const updatedStripes = updateStripe(
+            stripe.id,
+            { ...stripe, color: newColor },
+            stripes
+        );
+
+        dispatch(
+            rootActions.main({
+                stripes: updatedStripes,
+            })
+        )
+    };
 
     return (
         <Panel slideOnMobile={ true }>
@@ -23,8 +54,8 @@ const StripesPanel = () => {
                                 classes="m-4"
                                 width="100px"
                                 value={ stripe.size }
-                                setValue={ () => {
-
+                                setValue={ (newValue: number) => {
+                                    onSizeChange(stripe, newValue);
                                 }}>
                                 Size
                             </NumberTextBox>
@@ -32,8 +63,8 @@ const StripesPanel = () => {
                             <ColorPicker
                                 classes="m-4"
                                 color={ stripe.color }
-                                setColor={ () => {
-
+                                setColor={ (newColor: string) => {
+                                    onColorChange(stripe, newColor);
                                 }}>
                                 Color
                             </ColorPicker>

@@ -35,7 +35,7 @@ const initialState: IRootState = {
     // the list of stripes ----------
     stripes: [
         {
-            color: '#505050',
+            color: '#33805B',
             size: 20,
             id: newId(),
         },
