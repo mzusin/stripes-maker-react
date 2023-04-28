@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+    color-scheme: dark;
+}
+
+@layer utilities {
+    .outline-none {
+        outline: none;
+    }
+
+    .darkly-main{
+        width: calc(100% - 4rem);
+    }
+
+    /**
+     * Mobile Menu.
+     */
+    .darkly-slide-m-panel{
+        left: -100%;
+        transition: left .5s ease;
+        position: absolute;
+        z-index: 10;
+        display: flex;
+    }
+
+    .darkly-show-m-menu .darkly-slide-m-panel{
+        left: 4rem;
+        max-width: calc(100% - 4rem);
+    }
+}
+
+

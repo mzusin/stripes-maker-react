@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { CloseMobileMenuButton, ColorPicker, EButtonType, HSplitter, NumberTextBox, Panel, PanelTitle, PanelSection, Button } from 'darkly';
 import { rootActions, useAppDispatch, useAppSelector } from '../../dal/store';
 import { IStripe } from '../../iterfaces';
-import { updateStripe } from '../../domain/stripes-provider';
+import { addStripe, updateStripe } from '../../domain/stripes-provider';
 
 const StripesPanel = () => {
 
@@ -37,6 +37,16 @@ const StripesPanel = () => {
         )
     };
 
+    const addStripeHandler = () => {
+        const updatedStripes = addStripe(stripes);
+
+        dispatch(
+            rootActions.main({
+                stripes: updatedStripes,
+            })
+        )
+    };
+
     return (
         <Panel slideOnMobile={ true }>
             <PanelTitle>
@@ -46,7 +56,9 @@ const StripesPanel = () => {
 
             <HSplitter />
 
-            <PanelSection fullHeight={ true } scrollable={ true }>
+            <PanelSection fullHeight={ true } scrollable={ true } style={{
+                paddingBottom: '250px',
+            }}>
                 {
                     stripes.map(stripe => {
                         return (
@@ -64,6 +76,7 @@ const StripesPanel = () => {
                                 <ColorPicker
                                     classes="m-4"
                                     color={ stripe.color }
+                                    popupPosition="right"
                                     setColor={ (newColor: string) => {
                                         onColorChange(stripe, newColor);
                                     }}>
@@ -77,7 +90,7 @@ const StripesPanel = () => {
                 }
             </PanelSection>
 
-            <Button type={ EButtonType.Primary } classes="my-4">
+            <Button type={ EButtonType.Primary } classes="my-4" onClick={ addStripeHandler }>
                 Add Stripe
                 <svg xmlns="http://www.w3.org/2000/svg" className="ml-4" width="24"
                      height="24" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" fill="none"

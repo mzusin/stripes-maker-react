@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import postCssPlugin from '../esbuild-plugins/esbuild-pcss-plugin.js';
 
 const packageJson = fs.readFileSync(path.join(process.cwd(), './package.json'), 'utf-8');
 let version = '1.0.0';
@@ -16,7 +17,7 @@ export const settings = {
     sourcemap: 'linked', // external
     minify: true,
     target: ['es6'],
-    plugins: [],
+    plugins: [postCssPlugin],
     banner: {
         js: `/* 
 SVG Stripes Maker

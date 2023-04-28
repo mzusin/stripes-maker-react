@@ -8,8 +8,9 @@ const tailwindSettings = {
 
     // purge --------
     content: [
-        './src/main/**/*.tsx',
-        './src/main/**/*.ts',
+        './src/website/**/*.tsx',
+        './src/website/**/*.ts',
+        './node_modules/darkly/**/*.{js,ts,jsx,tsx}',
     ],
     theme: {
 

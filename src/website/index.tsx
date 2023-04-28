@@ -1,4 +1,5 @@
-import 'darkly/dist/darkly.min.css';
+// import 'darkly/dist/darkly.min.css';
+import './css/index.pcss';
 import * as React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';

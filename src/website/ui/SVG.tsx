@@ -51,12 +51,15 @@ const SVG = (props: ISvgProps) => {
 
     return (
         <StretchBox classes="flex justify-center items-center p-4">
-            <FramedImage width={ svgWidth } height={ svgHeight } classes="mx-auto overflow-hidden">
+            <FramedImage width="100%" height="100%" classes="mx-auto overflow-hidden" style={{
+                maxWidth: `${ svgWidth }px`,
+                maxHeight: `${ svgHeight }px`,
+            }}>
                 <svg
                     id="stripes-svg"
                     xmlns="http://www.w3.org/2000/svg"
-                    width={ svgWidth }
-                    height={ svgHeight }>
+                    width="100%"
+                    height="100%">
 
                     {/* stripes pattern definition */}
                     <defs>

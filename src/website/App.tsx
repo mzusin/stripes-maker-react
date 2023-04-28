@@ -5,7 +5,6 @@ import ActionsPanel from './ui/ActionsPanel';
 import MainTopBar from './ui/MainTopBar';
 import SVG from './ui/SVG';
 import MainBottomBar from './ui/MainBottomBar';
-import { EAnimationType } from './iterfaces';
 import { useAppSelector } from './dal/store';
 
 const App = () => {
