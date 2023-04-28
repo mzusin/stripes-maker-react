@@ -1,0 +1,27 @@
+{
+  "name": "stripes-maker-react",
+  "version": "1.0.0",
+  "description": "A free online SVG stripe pattern generator and maker. Create multi-stripe animated patterns, copy CSS or SVG code that is ready for you web projects, or just download the SVG file for free!",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "stripes",
+    "crochet",
+    "knitting",
+    "svg",
+    "animated svg"
+  ],
+  "author": "Miriam Zusin <miriam.zusin@gmail.com>",
+  "license": "SEE LICENSE IN LICENSE.md",
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not op_mini all"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mzusin/stripes-maker-react"
+  }
+}
