@@ -2,6 +2,7 @@ import esbuild from 'esbuild';
 import { settings } from './settings.js';
 import esbuildWatchPlugin from '../esbuild-plugins/esbuild-watch-plugin.js';
 import path from 'path';
+import fse from 'fs-extra';
 
 /**
  * Build js/css.
@@ -10,7 +11,7 @@ const buildAssets = () => {
 
     // empty assets folder
     const assetsPath =  path.join(process.cwd(), './website/assets');
-    console.log(assetsPath);
+    fse.emptyDirSync(assetsPath);
 
     const args = process.argv.slice(2);
     const watch = args.length > 1 && args[1].trim().toLowerCase() === 'watch';
