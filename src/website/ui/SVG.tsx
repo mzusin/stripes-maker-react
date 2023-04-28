@@ -2,6 +2,7 @@ import { FramedImage, StretchBox } from 'darkly';
 import { newId } from 'mz-math';
 import React from 'react';
 import { EAnimationType, IStripe } from '../iterfaces';
+import { useAppSelector } from '../dal/store';
 
 export interface ISvgProps {
     stripes: IStripe[];
@@ -39,7 +40,10 @@ const SVG = (props: ISvgProps) => {
     const { stripes, lineRotation, animationType, animationDuration } = props;
 
     const patternId = newId();
+
     const size = stripes.reduce((prev, stripe) => prev + stripe.size, 0);
+    const svgWidth = useAppSelector(store => store.root.svgWidth);
+    const svgHeight = useAppSelector(store => store.root.svgHeight);
 
     const isRotateAnimation =
         animationType === EAnimationType.RotateClockWise ||
@@ -47,12 +51,12 @@ const SVG = (props: ISvgProps) => {
 
     return (
         <StretchBox classes="flex justify-center items-center p-4">
-            <FramedImage width={ '500px' } height={ '270px' } classes="mx-auto">
+            <FramedImage width={ svgWidth } height={ svgHeight } classes="mx-auto overflow-hidden">
                 <svg
                     id="stripes-svg"
                     xmlns="http://www.w3.org/2000/svg"
-                    width="100%"
-                    height="100%">
+                    width={ svgWidth }
+                    height={ svgHeight }>
 
                     {/* stripes pattern definition */}
                     <defs>

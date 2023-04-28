@@ -5,6 +5,9 @@ import { newId } from 'mz-math';
 export interface IRootState{
     selectedAction: EAction;
 
+    svgWidth: number;
+    svgHeight: number;
+
     lineRotation: number;
     animationType: EAnimationType;
     animationDuration: number;
@@ -17,9 +20,11 @@ export interface IRootState{
 const initialState: IRootState = {
     selectedAction: EAction.ImageSize,
 
+    svgWidth: 500,
+    svgHeight: 270,
+
     /*out: './out/example.svg',  // the pass to the output file
-    width: 300, // SVG width
-    height: 300, // SVG height
+
     bgColor: '#fff', // SVG background color*/
     lineRotation: 45, // stripes rotation angle in degrees
 
