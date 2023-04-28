@@ -16,7 +16,7 @@ export const settings = {
     sourcemap: 'linked', // external
     minify: true,
     target: ['es6'],
-    // outfile: './dist/darkly.min.js',
+    plugins: [],
     banner: {
         js: `/* 
 SVG Stripes Maker
