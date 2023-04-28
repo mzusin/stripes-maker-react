@@ -1,7 +1,9 @@
+import 'darkly/dist/darkly.min.css';
 import * as React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './App';
-import 'darkly/dist/darkly.min.css';
+import { Provider } from 'react-redux';
+import store from './dal/store';
 
 const init = () => {
     const $root =  document.getElementById('root') as HTMLElement;
@@ -10,7 +12,9 @@ const init = () => {
     const root = ReactDOM.createRoot($root);
     root.render(
         <React.StrictMode>
-            <App />
+            <Provider store={ store }>
+                <App />
+            </Provider>
         </React.StrictMode>
     );
 };
