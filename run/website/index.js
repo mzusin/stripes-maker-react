@@ -4,6 +4,7 @@ import esbuildWatchPlugin from '../esbuild-plugins/esbuild-watch-plugin.js';
 import path from 'path';
 import fse from 'fs-extra';
 import { newId } from 'mz-math';
+import fs from 'fs';
 
 /**
  * Build js/css.
@@ -41,6 +42,20 @@ const buildAssets = (hash) => {
 };
 
 /**
+ * Create index.html from template.
+ * @param {string} hash
+ */
+const buildHtml = (hash) => {
+    const source = path.join(process.cwd(), './src/website/template/index.html');
+    const target = path.join(process.cwd(), './website/index.html');
+
+    let html = fs.readFileSync(source, 'utf8');
+    html = html.replaceAll('{% css-hash %}', hash);
+    html = html.replaceAll('{% js-hash %}', hash);
+    fs.writeFileSync(target, html, 'utf8');
+};
+
+/**
  * Entry point.
  */
 const init = () => {
@@ -48,6 +63,7 @@ const init = () => {
     const hash = newId();
 
     buildAssets(hash);
+    buildHtml(hash);
 };
 
 init();
