@@ -33,6 +33,7 @@
     "mz-math": "^3.0.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-redux": "^8.0.5",
     "tinycolor2": "^1.6.0"
   },
   "devDependencies": {
@@ -47,7 +48,6 @@
     "eslint-plugin-react": "^7.32.2",
     "fs-extra": "^11.1.1",
     "postcss": "^8.4.23",
-    "react-redux": "^8.0.5",
     "tailwindcss": "^3.3.2",
     "uglifycss": "^0.0.29"
   }

@@ -15,6 +15,7 @@ export const settings = {
     format: 'esm',
     bundle: true,
     sourcemap: 'linked', // external
+    define: { 'process.env.NODE_ENV': `'production'` }, // dev, production
     minify: true,
     target: ['es6'],
     plugins: [postCssPlugin],
