@@ -20,12 +20,10 @@ export const settings = {
     plugins: [postCssPlugin],
     banner: {
         js: `/* 
-SVG Stripes Maker
-Version: ${version}
-Author: Miriam Zusin     
-Contact: miriam.zusin@gmail.com
-Documentation: https://github.com/mzusin/stripes-maker-react
-Licensed GPLv3 for open source use, or Commercial License for commercial use - https://github.com/mzusin/index/blob/main/LICENSE.md                 
+SVG Stripes Maker v${ version }
+https://github.com/mzusin/stripes-maker-react
+Licensed GPLv3 for open source use, or Commercial License for commercial use - https://github.com/mzusin/index/blob/main/LICENSE.md    
+Copyright (c) 2023-present, Miriam Zusin             
 */`,
     },
 };
