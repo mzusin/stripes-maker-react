@@ -1,0 +1,9 @@
+/// <reference types="react" />
+export declare const LogoIcon: () => JSX.Element;
+export declare const ImageSizeIcon: () => JSX.Element;
+export declare const StripesIcon: () => JSX.Element;
+export declare const RotationIcon: () => JSX.Element;
+export declare const AnimationIcon: () => JSX.Element;
+export declare const ExportIcon: () => JSX.Element;
+export declare const CloseIcon: () => JSX.Element;
+export declare const PlusIcon: () => JSX.Element;

@@ -1,11 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
-    ButtonsGroup, ButtonsGroupButton,
     CloseMobileMenuButton,
     ColorPicker,
     HSplitter,
-    IconRadioButton,
-    IconRadioButtonGroup,
     NumberTextBox, Panel,
     PanelTitle
 } from 'darkly';
